@@ -72,7 +72,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        credentials_json: ${{ secrets.GCP_CREDENTIALS}}
+        credentials_json:temp-run-check@dssrc-test-project-367514.iam.gserviceaccount.com
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
