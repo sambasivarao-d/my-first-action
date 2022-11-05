@@ -1,5 +1,5 @@
 provider "google" {
-  project     = "dssrc-test-project-367514"
+  project = "dssrc-test-project-367514"
 }
 
 module "bigquery" {
@@ -12,32 +12,32 @@ module "bigquery" {
 
   tables = [
     {
-      table_id = "bq_raw"
-      schema   = ""
-      time_partitioning = null
+      table_id           = "bq_raw"
+      schema             = ""
+      time_partitioning  = null
       range_partitioning = null
       expiration_time    = null
       clustering         = []
-      labels = {}
-      
+      labels             = {}
+
     },
-        {
-      table_id = "bq_spd"
-      schema   = ""
-      time_partitioning = null
+    {
+      table_id           = "bq_spd"
+      schema             = ""
+      time_partitioning  = null
       range_partitioning = null
       expiration_time    = null
       clustering         = []
-      labels = {}
+      labels             = {}
     },
-        {
-      table_id = "bq_failed"
-      schema   = ""
-      time_partitioning = null
+    {
+      table_id           = "bq_failed"
+      schema             = ""
+      time_partitioning  = null
       range_partitioning = null
       expiration_time    = null
       clustering         = []
-      labels = {}
+      labels             = {}
     },
   ]
 }
