@@ -47,7 +47,7 @@ name: 'Terraform'
 on:
   push:
     branches: [ ]
-  pull_request:
+  push:
 
 permissions:
   contents: read
@@ -75,6 +75,7 @@ jobs:
         service_account_email: ${{ secrets.GCP_EMAIL }}
         service_account_key: ${{ secrets.GCP_CREDENTIALS }}
         export_default_credentials: true
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
