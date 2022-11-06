@@ -46,7 +46,7 @@ name: 'Terraform'
 
 on:
   push:
-    branches: [ ]
+    branches: [ ./ ]
   push:
 
 permissions:
