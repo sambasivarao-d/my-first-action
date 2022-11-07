@@ -1,3 +1,4 @@
+provider "google"{}
 module "bigquery" {
   source       = "./modules/bigquery"
   dataset_id   = "myfirstdataset"
