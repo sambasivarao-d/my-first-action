@@ -45,7 +45,7 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
-    # Generates an execution plan for Terraform
+    # Generates an execution plan for Terraform 
     - name: Terraform Plan
       run: terraform plan -input=false
 
