@@ -37,3 +37,11 @@ module "bigquery" {
     },
   ]
 }
+
+module "cloud_run" {
+  source  = "./modules/cloud-run"
+  service_name           = "my-first-cloud-run-service"
+  project_id             = "dssrc-test-project-367514"
+  location               = "us-central1"
+  image                  = "gcr.io/cloudrun/hello"
+}
