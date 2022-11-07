@@ -46,7 +46,7 @@ name: 'Terraform'
 
 on:
   push:
-    branches: []
+    branches: [ ]
   pull_request:
 
 permissions:
@@ -64,20 +64,23 @@ jobs:
         shell: bash
 
     steps:
+        # Checkout the repository to the GitHub Actions runner
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@v0
+      with:
+        # workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_ID }}
+        service_account: ${{ secrets.SERVICE_ACCOUNT }}
+        credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+        token_format: 'access_token'
+        access_token_lifetime: 300s
     # Checkout the repository to the GitHub Actions runner
-    # - name: Authenticate to Google Cloud
-    #   id: auth
-    #   uses: google-github-actions/auth@v0
-    #   with:
-    #     # workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_ID }}
-    #     service_account: ${{ secrets.SERVICE_ACCOUNT }}
-    #     credentials_json: ${{ secrets.GCP_CREDENTIALS }}
-    #     token_format: 'access_token'
-    #     access_token_lifetime: 300s
+    - name: Checkout
+      uses: actions/checkout@v3
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1        
+      uses: hashicorp/setup-terraform@v1
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
