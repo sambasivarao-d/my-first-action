@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file dockerfile --tag my-image-name:gcr.io/dssrc-test-project-367514/my-docker-image
+      run: docker build . --file dockerfile --tag my-image-name: gcr.io/dssrc-test-project-367514/my-docker-image
     - name: Authenticate to Google Cloud
       id: auth
       uses: google-github-actions/auth@v0
