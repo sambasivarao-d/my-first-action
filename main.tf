@@ -45,3 +45,11 @@ module "cloud_run" {
   location     = "us-central1"
   image        = "gcr.io/cloudrun/hello"
 }
+
+resource "docker_registry_image" "helloworld" {
+  name = "helloworld:1.0"
+
+  build {
+    context = "${path.cwd}/absolutePathToContextFolder"
+  }
+}
