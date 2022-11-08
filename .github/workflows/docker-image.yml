@@ -17,6 +17,8 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file dockerfile
       working-directory: ./docker-image
+    - name: Save the image
+      run: docker save myimage:latest | gzip > myimage_latest.tar.gz
 
     - name: Authenticate to Google Cloud
       id: auth
