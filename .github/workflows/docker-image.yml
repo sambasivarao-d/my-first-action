@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file dockerfile
+      run: docker build . --file dockerfile --tag my-image-name:my-first-image
       working-directory: ./docker-image
     - name: docker image list
       run: docker image ls 
