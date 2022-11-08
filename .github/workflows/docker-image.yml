@@ -17,18 +17,18 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file dockerfile
       working-directory: ./docker-image
-    - name: Save the image
-      run: docker save myimage:latest | gzip > myimage_latest.tar.gz
+    - name: docker image list
+      run: docker imagels
 
-    - name: Authenticate to Google Cloud
-      id: auth
-      uses: google-github-actions/auth@v0
-      with:
-        # workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_ID }}
-        service_account: ${{ secrets.SERVICE_ACCOUNT }}
-        credentials_json: ${{ secrets.GCP_CREDENTIALS }}
-        token_format: 'access_token'
-        access_token_lifetime: 300s
+    # - name: Authenticate to Google Cloud
+    #   id: auth
+    #   uses: google-github-actions/auth@v0
+    #   with:
+    #     # workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_ID }}
+    #     service_account: ${{ secrets.SERVICE_ACCOUNT }}
+    #     credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+    #     token_format: 'access_token'
+    #     access_token_lifetime: 300s
     # - name: Push to GCR Repo
     #   run: gcloud container images list-tags gcr.io/dssrc-test-project-367514/my-docker-image  
 
