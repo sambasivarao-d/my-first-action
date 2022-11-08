@@ -19,6 +19,8 @@ jobs:
       working-directory: ./docker-image
     - name: docker image list
       run: docker image ls 
+    - name: docker image save
+      run: docker save -o my-first-image.tar docker-image:my-first-image
 
     # - name: Authenticate to Google Cloud
     #   id: auth
