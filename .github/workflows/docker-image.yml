@@ -19,8 +19,8 @@ jobs:
       working-directory: ./docker-image
     - name: docker image list
       run: docker image ls 
-    - name: docker image save
-      run: docker $(docker-machine config /usr/bin/bash) save gcrimage | docker $(docker-machine config /docker-image) load
+    - name: docker image info
+      run: docker info
 
     # - name: Authenticate to Google Cloud
     #   id: auth
