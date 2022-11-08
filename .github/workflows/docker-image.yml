@@ -23,6 +23,7 @@ jobs:
       run: docker info
     - name: docker image save
       run: docker save -o /var/lib/docker gcrimage
+    - name: docker image load
       run: docker load -i /docker-image
 
     # - name: Authenticate to Google Cloud
