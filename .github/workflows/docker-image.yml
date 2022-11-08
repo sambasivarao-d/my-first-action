@@ -16,7 +16,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag my-image-name:my-first-image
-      working-directory: docker-image
+      working-directory: ./docker-image
+    - name: saving the image file
+      run: docker save -o ./docker-image my-first-image
 
     - name: Authenticate to Google Cloud
       id: auth
