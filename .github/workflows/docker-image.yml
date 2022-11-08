@@ -20,7 +20,7 @@ jobs:
     - name: docker image list
       run: docker image ls 
     - name: docker image save
-      run: docker image save my-first-image -o gcrimage.tar
+      run: docker image save gcrimage -o gcrimage.tar
 
     # - name: Authenticate to Google Cloud
     #   id: auth
