@@ -22,7 +22,7 @@ jobs:
     - name: docker image info
       run: docker info
     - name: docker image save
-      run: docker save -o /var/lib/docker gcrimage
+      run: sudo docker save -o /var/lib/docker gcrimage
     - name: docker image load
       run: docker load -i /docker-image
 
