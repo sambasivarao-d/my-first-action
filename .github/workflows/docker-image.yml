@@ -26,6 +26,6 @@ jobs:
         token_format: 'access_token'
         access_token_lifetime: 300s
     - name: Push to GCR Repo
-      run: gcr.io/dssrc-test-project-367514/my-docker-image  
+      run: docker push gcr.io/dssrc-test-project-367514/my-docker-image  
 
 
