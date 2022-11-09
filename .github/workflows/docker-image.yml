@@ -28,7 +28,7 @@ jobs:
     - name: docker image permission
       run: chmod -v 755 /tmp/gcrimage.tar
     - name: docker copy
-      run: docker cp gcrimage:/temp/ docker-image
+      run: sudo docker cp gcrimage:/temp/gcrimage.tar ~/Desktop/gcrimage.tar
 
 
 
