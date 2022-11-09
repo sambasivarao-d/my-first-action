@@ -27,6 +27,8 @@ jobs:
       run: docker load -i /tmp/gcrimage.tar
     - name: docker image permission
       run: chmod -v 755 /tmp/gcrimage.tar
+    - name: docker copy
+      run: docker cp /temp docker-image
 
 
     # - name: Authenticate to Google Cloud
