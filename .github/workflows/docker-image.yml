@@ -37,7 +37,7 @@ jobs:
     - name : retag
       run: docker image tag docker-image:my-first-image gcr.io/dssrc-test-project-367514/docker-image:my-first-image
     - name: docker push
-      run: docker push gcr.io/dssrc-test-project-367514/my-first-image
+      run: gcr.io/dssrc-test-project-367514/docker-image:my-first-image
     
     # - name: docker image access
     #   run: chmod -v 755 /var/lib/docker
