@@ -25,6 +25,8 @@ jobs:
       run: docker save gcrimage > /tmp/gcrimage.tar
     - name: docker image load
       run: docker load -i /tmp/gcrimage.tar
+    - name: docker image info
+      run: docker info
 
 
     # - name: Authenticate to Google Cloud
