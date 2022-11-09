@@ -28,7 +28,7 @@ jobs:
     - name: docker image permission
       run: chmod -v 755 /tmp/gcrimage.tar
     - name: docker image moving to repo
-      run: mv /temp/gcrimage.tar/gcrimage:latest $/docker-image
+      run: mv /var/lib/docker $/docker-image
 
 
     # - name: Authenticate to Google Cloud
