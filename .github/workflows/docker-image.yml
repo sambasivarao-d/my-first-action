@@ -19,10 +19,10 @@ jobs:
       working-directory: ./docker-image
     - name: docker image list
       run: docker image ls 
-    - name: docker image access
-      run: chmod -v 755 /var/lib/docker
+    # - name: docker image access
+    #   run: chmod -v 755 /var/lib/docker
     - name: docker image save
-      run: docker save -o /var/lib/docker gcrimage
+      run: docker save gcrimage > /tmp/gcrimage.tar
     - name: docker image load
       run: docker load -i /docker-image
 
