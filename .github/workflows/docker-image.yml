@@ -15,22 +15,22 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file dockerfile --tag docker-image:my-first-image
+      run: docker build -f docker-image . --file dockerfile --tag docker-image:my-first-image
       working-directory: ./docker-image
     - name: docker image list
       run: docker image ls 
     # - name: docker image access
     #   run: chmod -v 755 /var/lib/docker
-    - name: docker image save
-      run: docker save gcrimage > /tmp/gcrimage.tar
-    - name: docker image load
-      run: docker load -i /tmp/gcrimage.tar
-    - name: docker image permission
-      run: chmod -v 755 /tmp/gcrimage.tar
+    # - name: docker image save
+    #   run: docker save gcrimage > /tmp/gcrimage.tar
+    # - name: docker image load
+    #   run: docker load -i /tmp/gcrimage.tar
+    # - name: docker image permission
+    #   run: chmod -v 755 /tmp/gcrimage.tar
     # - name: docker copy
     #   run: sudo docker cp /temp/gcrimage.tar ~/
-    - name: docker image info
-      run: docker info
+    # - name: docker image info
+    #   run: docker info
 
 
 
