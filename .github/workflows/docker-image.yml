@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t gcrimage . --file dockerfile --tag docker-image:my-first-image
+      run: docker build -t gcrimage -f /docker-image  --file dockerfile --tag docker-image:my-first-image
       working-directory: ./docker-image
     - name: docker image list
       run: docker image ls 
@@ -28,7 +28,7 @@ jobs:
     - name: docker image permission
       run: chmod -v 755 /tmp/gcrimage.tar
     # - name: docker copy
-    #   run: sudo docker cp /temp/gcrimage.tar ~/Downloads
+    #   run: sudo docker cp /temp/gcrimage.tar ~/
     - name: docker image info
       run: docker info
 
