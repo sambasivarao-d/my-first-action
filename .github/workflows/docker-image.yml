@@ -32,6 +32,10 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file dockerfile --tag docker-image:my-first-image
       working-directory: ./docker-image
+    - name: docker image list
+      run: docker image ls 
+    - name : retag
+      run: docker image tag my-first-image  gcr.io/dssrc-test-project-367514/docker-image
     - name: docker push
       run: docker push gcr.io/dssrc-test-project-367514/my-first-image
     
