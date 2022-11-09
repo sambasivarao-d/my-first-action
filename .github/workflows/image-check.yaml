@@ -27,7 +27,7 @@ jobs:
     - name: "authentication to Docker repositories "
       run: gcloud auth configure-docker
     - name: Build the Docker image
-      run: docker build .  --file dockerfile --tag my-first-image
+      run: docker build .  --file Dockerfile --tag my-first-image
       working-directory: ./image-check
     - name: docker image list
       run: docker image ls 
