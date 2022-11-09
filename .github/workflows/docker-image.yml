@@ -25,8 +25,7 @@ jobs:
         token_format: 'access_token'
         access_token_lifetime: 300s
     - name: "authentication to Docker repositories "
-      run: |
-          gcloud auth configure-docker
+      run: gcloud auth configure-docker
     - name: Build the Docker image
       run: docker build .  --file dockerfile --tag docker-image:my-first-image
       working-directory: ./docker-image
