@@ -30,7 +30,7 @@ jobs:
     - name: docker image list
       run: docker image ls 
     - name: Build the Docker image
-      run: docker build . --file dockerfile --tag docker-image:my-first-image
+      run: docker build . --file dockerfile --tag latest:my-first-image
       working-directory: ./docker-image
     - name: docker image list
       run: docker image ls 
