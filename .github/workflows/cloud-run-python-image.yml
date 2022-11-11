@@ -1,0 +1,39 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - uses: actions/checkout@v3
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@v0
+      with:
+        # workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_ID }}
+        service_account: ${{ secrets.SERVICE_ACCOUNT }}
+        credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+        token_format: 'access_token'
+        access_token_lifetime: 300s
+    - name: "authentication to Docker repositories "
+      run: gcloud auth configure-docker
+    - name: Build the Docker image
+      run: docker build .  --file dockerfile --tag my-first-image
+      working-directory: ./,cloudrun-code
+    - name: docker image list
+      run: docker image ls 
+    - name : retag
+      run: docker image tag my-first-image gcr.io/dssrc-test-project-367514/my-first-image
+    - name: docker push
+      run: docker push gcr.io/dssrc-test-project-367514/my-first-image
+    
+
