@@ -28,7 +28,7 @@ jobs:
       run: gcloud auth configure-docker
     - name: Build the Docker image
       run: docker build .  --file dockerfile --tag my-first-image
-      working-directory: ./,cloudrun-code
+      working-directory: ./cloudrun-code
     - name: docker image list
       run: docker image ls 
     - name : retag
